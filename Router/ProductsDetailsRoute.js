@@ -11,6 +11,7 @@ router.put('/edit/:id', products.editProductDetails );
 router.delete('/delete/:id', products.deleteProductDetails );
 
 router.get('/getproductdetails' , products.getProductDetails)
+router.get('/getproductdetails/:id' , products.getProductDetailsById)
 
 router.get('/getproductdetailsimac' , products.getProductDetailsImacById)
 

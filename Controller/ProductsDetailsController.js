@@ -199,7 +199,7 @@ const deleteProductDetails = async (req, res) => {
 const getProductDetails = (req, res) => {
   //Read the image from the folder using the image path and image name saved in database 
   const query =
-    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products";
+    "SELECT *  FROM products";
   dataProducts.query(query, (err, results) => {
     if (err) {
       console.error("Error executing SQL query:", err);
@@ -207,6 +207,32 @@ const getProductDetails = (req, res) => {
       return;
     }
     res.json(results);
+  });
+};
+
+const getProductDetailsById = (req, res) => {
+  const productId = req.params.id; // Assuming you're passing the product ID as a parameter in the request URL
+
+  const query = `
+    SELECT *
+    FROM products 
+    WHERE p_id = ?`; // Replace 'id' with the actual name of your product ID column
+
+  dataProducts.query(query, [productId], (err, results) => {
+    if (err) {
+      console.error("Error executing SQL query:", err);
+      res.status(500).json({ error: "Internal server error" });
+      return;
+    }
+
+    if (results.length === 0) {
+      res.status(404).json({ error: "Product not found" });
+      return;
+    }
+
+    const product = results[0]; // Assuming there's only one product with the given ID
+    res.json(product);
+    console.log(productId)
   });
 };
 
@@ -341,6 +367,7 @@ module.exports = {
   editProductDetails,
   deleteProductDetails,
   getProductDetails,
+  getProductDetailsById,
   getProductDetailsIphoneById,
   getProductDetailsImacById,
   getProductDetailsIpadById,
