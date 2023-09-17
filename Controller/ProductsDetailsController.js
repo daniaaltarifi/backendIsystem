@@ -199,7 +199,7 @@ const deleteProductDetails = async (req, res) => {
 const getProductDetails = (req, res) => {
   //Read the image from the folder using the image path and image name saved in database 
   const query =
-    "SELECT *  FROM products";
+    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products";
   dataProducts.query(query, (err, results) => {
     if (err) {
       console.error("Error executing SQL query:", err);
