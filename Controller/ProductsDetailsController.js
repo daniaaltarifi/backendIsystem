@@ -240,7 +240,7 @@ const getProductDetailsImacById = (req, res) => {
   const itemId = req.params.id;
 
   const query =
-    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products  WHERE category_id = 3";
+    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products  WHERE category_id = 2";
 
   dataProducts.query(query, [itemId], (err, results) => {
     if (err) {
@@ -294,7 +294,7 @@ const getProductDetailsWatchById = (req, res) => {
   const itemId = req.params.id;
 
   const query =
-    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products  WHERE category_id = 4";
+    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products  WHERE category_id = 5";
 
   dataProducts.query(query, [itemId], (err, results) => {
     if (err) {
@@ -312,7 +312,7 @@ const getProductDetailsAudioById = (req, res) => {
   const itemId = req.params.id;
 
   const query =
-    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products  WHERE category_id = 5";
+    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products  WHERE category_id = 7";
 
   dataProducts.query(query, [itemId], (err, results) => {
     if (err) {
@@ -330,7 +330,7 @@ const getProductDetailsAppleTvById = (req, res) => {
   const itemId = req.params.id;
 
   const query =
-    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products  WHERE category_id = 6";
+    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products  WHERE category_id = 8";
 
   dataProducts.query(query, [itemId], (err, results) => {
     if (err) {
@@ -348,7 +348,7 @@ const getProductDetailsAccessoriesTvById = (req, res) => {
   const itemId = req.params.id;
 
   const query =
-    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products  WHERE category_id = 7";
+    "SELECT * , TO_BASE64(image_main) AS image_base64 FROM products  WHERE category_id = 6";
 
   dataProducts.query(query, [itemId], (err, results) => {
     if (err) {
