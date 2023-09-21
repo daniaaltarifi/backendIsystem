@@ -63,16 +63,14 @@ exports.login = (req, res) => {
   }
 };
 
-
-exports.getUsers  = (req, res) => {
-
-  const query = 'SELECT username  FROM users';
+exports.getUsers = (req, res) => {
+  const query = "SELECT username  FROM users";
   db.query(query, (err, results) => {
     if (err) {
-      console.error('Error executing SQL query:', err);
-      res.status(500).json({ error: 'Internal server error' });
+      console.error("Error executing SQL query:", err);
+      res.status(500).json({ error: "Internal server error" });
       return;
     }
     res.json(results);
   });
-}
+};

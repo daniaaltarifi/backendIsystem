@@ -65,16 +65,16 @@ exports.signup = async (req, res) => {
 
           // Generate a JWT token
           const token = jwt.sign(
-            { userId: user.u_id, email: user.email },
+            { userId: user.id, email: user.email },
             process.env.SECRETKEY,
             { expiresIn: "1h" }
           );
 
           // Update the user's token in the database
-          const updateTokenQuery = "UPDATE users SET token = ? WHERE u_id = ?";
+          const updateTokenQuery = "UPDATE users SET token = ? WHERE id = ?";
           db.query(
             updateTokenQuery,
-            [token, user.u_id],
+            [token, user.id],
             function (err, updateResult) {
               if (err) {
                 console.error("MySQL Error:", err);
