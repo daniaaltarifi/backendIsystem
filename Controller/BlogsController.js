@@ -83,7 +83,7 @@ const getBlog = (req, res) => {
 const getBlogById = (req, res) => {
   const itemId =  req.params.id ;
 
-  const query = 'SELECT * , TO_BASE64(image_blog) AS image_base64 FROM blogs  WHERE blog_id = ?'
+  const query = 'SELECT * , TO_BASE64(image_blog) AS image_base64 FROM blogs  WHERE id_blogs = ?'
 
   dataProducts.query(query ,
   [itemId], (err, results) => {
@@ -94,7 +94,7 @@ const getBlogById = (req, res) => {
     }
     
      console.log(results);
-     res.status(200).json({ results });
+     res.status(200).json( results );
   });
 }
 
