@@ -12,7 +12,7 @@ const blogDetails = require("./Router/BlogsRoute")
 const ProductColors = require("./Router/ProductsColorRoute")
 const ProductColorsVariations = require("./Router/ProductColorsVariationsRoute")
 const ProductsDetailsRoute = require("./Router/ProductsDetailsRoute")
-
+const NewImgProductsRoute=require('./Controller/NewImgProductsRoute.js')
 
 const dotenv = require("dotenv");
 dotenv.config({path : "./config.env"});
@@ -37,7 +37,7 @@ app.use('/login', loginRoute);
 app.use('/signup', signupRoute);
 
 // Use the product route
-app.use('/imgproducts', ImgProductsRoute);
+app.use('/newimgproducts', NewImgProductsRoute);
 
 // Use the product details route
 app.use('/productdetails', ProductsDetailsRoute);
